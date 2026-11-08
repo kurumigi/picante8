@@ -1,3 +1,11 @@
+# An attempt to get Picante8 running on Windows.
+
+Modified version of [Picante8](https://github.com/MustardOS/picante8).
+
+---
+__The rest of this README is unchanged.__
+---
+
 # Picante8
 
 Picante8 is the MustardOS PICO-8 Libretro core for Pickles specifically.

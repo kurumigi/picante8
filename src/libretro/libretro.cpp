@@ -778,7 +778,12 @@ extern "C"
     if (env.retro_cb(RETRO_ENVIRONMENT_GET_SAVE_DIRECTORY, &saveDirectory) && saveDirectory && *saveDirectory)
     {
       lua::cartdataDirectory = std::string(saveDirectory) + "/picante8";
-      mkdir(lua::cartdataDirectory.c_str(), 0755);
+
+      #if defined(_WIN32)
+        mkdir(lua::cartdataDirectory.c_str());
+      #else
+        mkdir(lua::cartdataDirectory.c_str(), 0755);
+      #endif
     }
 
     if (info && info->data)

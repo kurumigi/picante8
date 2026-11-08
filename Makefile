@@ -305,7 +305,7 @@ else ifeq ($(platform), dos)
 else
    CC ?= gcc
    TARGET := $(TARGET_NAME)_libretro.dll
-   SHARED := -shared -static-libgcc -static-libstdc++ -s -Wl,--version-script=$(CORE_DIR)/link.T -Wl,--no-undefined
+   SHARED := -shared -static-libgcc -static-libstdc++ -static -lwinpthread -s -Wl,--version-script=$(CORE_DIR)/link.T -Wl,--no-undefined
 endif
 
 LDFLAGS += $(LIBM)
@@ -328,7 +328,7 @@ include Makefile.common
 
 OBJECTS := $(SOURCES_C:.c=.o) $(SOURCES_CXX:.cpp=.o)
 
-CFLAGS   += -Wall -D__LIBRETRO__ $(fpic) $(INCFLAGS) 
+CFLAGS   += -Wall -D__LIBRETRO__ $(fpic) $(INCFLAGS) -std=c17
 CXXFLAGS += -Wall -D__LIBRETRO__ $(fpic) $(INCFLAGS) -std=c++14
 
 all: $(TARGET)

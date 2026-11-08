@@ -22,6 +22,22 @@ extern "C" {
 #pragma warning(push)
 #pragma warning(disable: 4244)
 
+#ifdef _WIN32
+#include <time.h>
+#include <errno.h>
+
+#ifndef gmtime_r
+// gmtime_r(timer, result) -> gmtime_s(result, timer)
+#define gmtime_r(timep, result) (gmtime_s(result, timep) == 0 ? (result) : NULL)
+#endif
+
+#ifndef localtime_r
+// localtime_r(timer, result) -> localtime_s(result, timer)
+#define localtime_r(timep, result) (localtime_s(result, timep) == 0 ? (result) : NULL)
+#endif
+
+#endif
+
 using namespace lua;
 using namespace retro8;
 

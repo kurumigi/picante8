@@ -1,0 +1,21 @@
+# Software Information
+display_name = "PICO-8 (Picante8)"
+authors = "jakz, xonglebongle"
+supported_extensions = "p8|png"
+corename = "Picante8"
+license = "GPLv3"
+permissions = ""
+display_version = "Git"
+categories = "Emulator"
+
+# Hardware Information
+manufacturer = "Lexaloffle"
+systemname = "PICO-8"
+systemid = "pico8"
+
+# Libretro Features
+database = "PICO-8"
+supports_no_game = "false"
+savestate = "false"
+
+description = "Picante8 is the MustardOS PICO-8 Libretro core for Pickles specifically. Picante8 is a fork of Retro8 by Jack (jakz)."

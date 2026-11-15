@@ -779,11 +779,11 @@ extern "C"
     {
       lua::cartdataDirectory = std::string(saveDirectory) + "/picante8";
 
-      #if defined(_WIN32)
-        mkdir(lua::cartdataDirectory.c_str());
-      #else
-        mkdir(lua::cartdataDirectory.c_str(), 0755);
-      #endif
+#ifdef _WIN32
+      mkdir(lua::cartdataDirectory.c_str());
+#else
+      mkdir(lua::cartdataDirectory.c_str(), 0755);
+#endif
     }
 
     if (info && info->data)
